@@ -28,13 +28,15 @@ app.get('/', (req, res) => {
 // })
 
 app.post('/api/name', (req, res) => {
-    if (typeof req.body.name === 'string'){
+    for (let i = 0; i < names.length; i++){
+    if (req.body.name === names[i]){
+        rollbar.error('name is already used')
+        console.log('name is already used')
+    } else {
         names.push(req.body.name)
         rollbar.log(`recived ${req.body.name}`)
         res.status(200).send(names)
-    } else {
-        rollbar.error('name is not a string')
-        console.log('name is not a string')
+    }
     }
 })
 
