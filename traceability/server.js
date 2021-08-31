@@ -11,18 +11,26 @@ const app = express()
 
 app.use(express.json())
 
+let names = []
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
     rollbar.log("HTML loaded")
 })
 
-app.get('/api/test', (req, res), () => {
-    try {
-        theFunction()
-    } catch (error) {
-        rollbar.error(error)
-    }
+// app.get('/api/test', (req, res), () => {
+//     try {
+//         theFunction()
+//     } catch (error) {
+//         rollbar.error(error)
+//     }
 
+// })
+
+app.post('/api/name', (req, res) => {
+    names.push(req.body)
+    rollbar.log('name recived')
+    res.status(200).send(names)
 })
 
 let port = process.env.PORT || 2525

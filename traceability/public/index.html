@@ -5,15 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traceability</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 </head>
 <body>
     <h1>Hello World</h1>
     <button id='testButton'>Test</button>
+    <form id='testForm'>
+        <input type='text' id='formInput' placeholder='enter a name'>
+        <button id='formButton'>Enter</button>
+    </form>
     <script>
         // let button = document.getElementById('testButton')
         // button.onclick(
         // axios.get('/api/test').then(console.log(res))
         // )
+
+        document.getElementById('formButton').addEventListener('click', () => {
+            let name = document.getElementById('formInput')
+            axios.post('/api/name', name.value).then(console.log(res))
+        })
     </script>
 </body>
 </html>
