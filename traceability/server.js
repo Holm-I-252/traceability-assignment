@@ -28,7 +28,6 @@ app.get('/', (req, res) => {
 // })
 
 app.post('/api/name', (req, res) => {
-    if (typeof req.body.name === )
     names.push(req.body.name)
     rollbar.log(`recived ${req.body.name}`)
     res.status(200).send(names)
