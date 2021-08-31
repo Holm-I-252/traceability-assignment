@@ -28,9 +28,14 @@ app.get('/', (req, res) => {
 // })
 
 app.post('/api/name', (req, res) => {
-    names.push(req.body.name)
-    rollbar.log(`recived ${req.body.name}`)
-    res.status(200).send(names)
+    if (typeof req.body.name === 'string'){
+        names.push(req.body.name)
+        rollbar.log(`recived ${req.body.name}`)
+        res.status(200).send(names)
+    } else {
+        rollbar.error('name is not a string')
+        console.log('name is not a string')
+    }
 })
 
 let port = process.env.PORT || 2525
