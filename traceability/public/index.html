@@ -8,8 +8,12 @@
 </head>
 <body>
     <h1>Hello World</h1>
+    <button id='testButton'>Test</button>
     <script>
+        let button = document.getElementById('testButton')
+        button.onclick(
         axios.get('/api/test').then(console.log(res))
+        )
     </script>
 </body>
 </html>
