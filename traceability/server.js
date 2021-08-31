@@ -28,8 +28,8 @@ app.get('/', (req, res) => {
 // })
 
 app.post('/api/name', (req, res) => {
-    names.push(req.body)
-    rollbar.log(`recived ${req.body}`)
+    names.push(req.body.name)
+    rollbar.log(`recived ${req.body.name}`)
     res.status(200).send(names)
 })
 
