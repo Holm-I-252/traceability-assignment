@@ -35,6 +35,7 @@
 
         document.getElementById('testButton').addEventListener('click', () => {
             axios.get('/api/button').then(res => {
+                console.log(res)
                 if (res === 0) {
                     document.getElementById('testButton').style.backgroundColor="blue"
                 } else if (res === 1) {
