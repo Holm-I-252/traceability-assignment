@@ -20,7 +20,8 @@
         // axios.get('/api/test').then(console.log(res))
         // )
 
-        document.getElementById('formButton').addEventListener('click', () => {
+        document.getElementById('formButton').addEventListener('click', (e) => {
+            e.preventDefault()
             let name = document.getElementById('formInput')
             axios.post('/api/name', {name: name.value}).then(res => {
                 console.log(res)
