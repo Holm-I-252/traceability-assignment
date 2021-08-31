@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 
 app.post('/api/name', (req, res) => {
     names.push(req.body)
-    rollbar.log('name recived')
+    rollbar.log(`recived ${req.body}`)
     res.status(200).send(names)
 })
 
