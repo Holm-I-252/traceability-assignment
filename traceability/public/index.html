@@ -22,8 +22,10 @@
 
         document.getElementById('formButton').addEventListener('click', () => {
             let name = document.getElementById('formInput')
-            axios.post('/api/name', name.value).then(console.log(res))
+            axios.post('/api/name', name.value).then(res => {
+                console.log(res)
         })
+    })
     </script>
 </body>
 </html>
