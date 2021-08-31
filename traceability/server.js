@@ -15,14 +15,14 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
-app.get('/api/test', (req, res), () => {
-    try {
-        theFunction()
-    } catch {
-        rollbar.error('The function didnt work')
-    }
+// app.get('/api/test', (req, res), () => {
+//     try {
+//         theFunction()
+//     } catch {
+//         rollbar.error('The function didnt work')
+//     }
 
-})
+// })
 
 let port = process.env.PORT || 2525
 
