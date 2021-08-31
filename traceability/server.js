@@ -13,6 +13,7 @@ app.use(express.json())
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
+    rollbar.log("HTML loaded")
 })
 
 // app.get('/api/test', (req, res), () => {
