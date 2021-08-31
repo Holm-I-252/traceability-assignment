@@ -28,16 +28,16 @@
         document.getElementById('testForm').addEventListener('submit', (e) => {
             e.preventDefault()
             let name = document.getElementById('formInput')
-            axios.post('/api/name', {name: name.value}).then(res => {
+            axios.post('/api/button', {name: name.value}).then(res => {
                 console.log(res)
         })
     })
 
         document.getElementById('testButton').addEventListener('click', () => {
             axios.get('/api/name').then(res => {
-                if (res === true) {
+                if (res === 0) {
                     document.getElementById('testButton').style.backgroundColor="blue"
-                } else if (res === false) {
+                } else if (res === 1) {
                     document.getElementById('testButton').style.backgroundColor="white"
                 }
             })

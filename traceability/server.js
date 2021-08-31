@@ -27,6 +27,23 @@ app.get('/', (req, res) => {
 
 // })
 
+let status = 0
+
+app.get('/api/button', (req, res) => {
+    if (status === 0){
+        res.status(200).send(status)
+        status++
+    } 
+    else if (status === 1){
+        res.status(200).send(status)
+        status--
+    }
+    else {
+        rollbar.error('status malfunction')
+    }
+
+})
+
 app.post('/api/name', (req, res) => {
     if (typeof req.body.name === 'string'){
         names.push(req.body.name)
