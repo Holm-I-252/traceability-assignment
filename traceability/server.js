@@ -38,6 +38,7 @@ app.get('/api/button', (req, res) => {
         res.status(200).send(s)
     } 
     else if (s.id === 1){
+        num++
         rollbar.log('button clicked')
         res.status(200).send(s)
     }
