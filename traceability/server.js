@@ -27,18 +27,20 @@ app.get('/', (req, res) => {
 
 // })
 
+let num = 0
 
 app.get('/api/button', (req, res) => {
-    let status = 0
-    if (status === 0){
-        res.status(200).send(status)
-        status++
+    let s = {'id': num}
+    if (s.id === 0){
+        console.log(s.id)
         rollbar.log('button clicked')
+        num++
+        res.status(200).send(s)
     } 
-    else if (status === 1){
-        res.status(200).send(status)
-        status--
+    else if (s.id === 1){
+        num--
         rollbar.log('button clicked')
+        res.status(200).send(s)
     }
     else {
         rollbar.error('status malfunction')
