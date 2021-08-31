@@ -16,14 +16,14 @@ app.get('/', (req, res) => {
     rollbar.log("HTML loaded")
 })
 
-// app.get('/api/test', (req, res), () => {
-//     try {
-//         theFunction()
-//     } catch {
-//         rollbar.error('The function didnt work')
-//     }
+app.get('/api/test', (req, res), () => {
+    try {
+        theFunction()
+    } catch (error) {
+        rollbar.error(error)
+    }
 
-// })
+})
 
 let port = process.env.PORT || 2525
 
